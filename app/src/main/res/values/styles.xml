@@ -1,0 +1,69 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_color</item>
+        <item name="colorAccent">@color/primary_color</item>
+
+        <item name="android:fontFamily">@font/verdana</item>
+
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+
+        <item name="android:listDivider">@android:color/transparent</item>
+
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="NavigationDrawerStyle">
+        <item name="android:textSize">@dimen/menu_font_size</item>
+        <item name="android:fontFamily">@font/verdana</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="Widget.App.TextView" parent="AppTheme">
+        <item name="android:textColor">@color/font_color</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:fontFamily">@font/verdana</item>
+    </style>
+    <style name="Widget.App.TextView.Default">
+        <item name="android:textSize">@dimen/font_size</item>
+    </style>
+    <style name="Widget.App.TextView.Large">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Widget.App.TextView.Large.Header">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+    <style name="Widget.App.TextView.XLarge">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="Widget.App.TextView.Small">
+        <item name="android:textSize">@dimen/smaller_font_size</item>
+    </style>
+    <style name="Widget.App.TextView.UltraSmall">
+        <item name="android:textSize">@dimen/ultra_small_font_size</item>
+    </style>
+    <style name="Widget.App.TextView.Unreadable">
+        <item name="android:textSize">@dimen/unreadable_font_size</item>
+    </style>
+
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textColor">@color/font_color</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:fontFamily">@font/verdana</item>
+    </style>
+</resources>

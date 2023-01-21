@@ -1,0 +1,25 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=13:74:B3:44:A1:EC:D9:67:2F:22:76:C7:D6:63:2F:A2:81:CC:23:B1%3Borg.ranapat.sensors.gps.example
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    org.ranapat.sensors.gps.example
+
+    SHA-1 certificate fingerprint:
+    EB:61:77:72:BC:05:8F:DE:9E:4B:E1:85:9E:5C:55:27:73:36:F1:01
+    13:74:B3:44:A1:EC:D9:67:2F:22:76:C7:D6:63:2F:A2:81:CC:23:B1
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDjuBkH7ErW-eABS0LO-rUILI6tGzNmbVU</string>
+</resources>

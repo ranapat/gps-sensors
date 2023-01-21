@@ -1,0 +1,135 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+
+apply from: "./jacoco.gradle"
+apply from: "../dependencies/ui_dependencies.gradle"
+apply from: "../dependencies/core_dependencies.gradle"
+apply from: "../dependencies/test_dependencies.gradle"
+apply from: "../dependencies/debugger_dependencies.gradle"
+
+android {
+    compileSdkVersion sdk_compile_version
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    defaultConfig {
+        applicationId "org.ranapat.sensors.gps.example"
+        testApplicationId "org.ranapat.sensors.gps.example.test"
+
+        minSdkVersion sdk_min_version
+        targetSdkVersion sdk_target_version
+
+        versionCode version_code
+        versionName version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    sourceSets {
+        androidTest {
+            assets.srcDirs = ['src/androidTest/assets']
+        }
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
+
+    testOptions {
+        unitTests.all {
+            //jvmArgs += ''
+        }
+        unitTests.returnDefaultValues = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "language_key", "\"${language_key}\"")
+            buildConfigField("String", "script_key", "\"${script_key}\"")
+            buildConfigField("String", "default_user_language", "\"${default_user_language}\"")
+            buildConfigField("String", "default_user_script", "\"${default_user_script}\"")
+
+            buildConfigField("long", "debounce_navigation_in_milliseconds", "${debounce_navigation_in_milliseconds}")
+
+            buildConfigField("float", "location_accuracy_best", "${location_accuracy_best}")
+            buildConfigField("float", "location_accuracy_worst", "${location_accuracy_worst}")
+
+            buildConfigField("double", "default_magnitude_delta_threshold", "${default_magnitude_delta_threshold}")
+            buildConfigField("long", "default_location_network_min_time_ms", "${default_location_network_min_time_ms}")
+            buildConfigField("long", "default_location_gps_min_time_ms", "${default_location_gps_min_time_ms}")
+            buildConfigField("float", "default_location_min_distance", "${default_location_min_distance}")
+
+            buildConfigField("float", "default_speed_meters_per_second", "${default_speed_meters_per_second}")
+            buildConfigField("float", "default_speed_meters_per_second_for_standing", "${default_speed_meters_per_second_for_standing}")
+            buildConfigField("float", "default_speed_meters_per_second_for_walking", "${default_speed_meters_per_second_for_walking}")
+            buildConfigField("float", "default_speed_meters_per_second_for_jogging", "${default_speed_meters_per_second_for_jogging}")
+            buildConfigField("float", "default_speed_meters_per_second_for_sprinting", "${default_speed_meters_per_second_for_sprinting}")
+
+            buildConfigField("int", "default_heartrate", "${default_heartrate}")
+            buildConfigField("int", "default_heartrate_for_standing", "${default_heartrate_for_standing}")
+            buildConfigField("int", "default_heartrate_for_walking", "${default_heartrate_for_walking}")
+            buildConfigField("int", "default_heartrate_for_jogging", "${default_heartrate_for_jogging}")
+            buildConfigField("int", "default_heartrate_for_sprinting", "${default_heartrate_for_sprinting}")
+
+            buildConfigField("long", "aggregate_data_seconds_interval", "${aggregate_data_seconds_interval}")
+            buildConfigField("long", "aggregate_sync_seconds_interval", "${aggregate_sync_seconds_interval}")
+        }
+
+        debug {
+            testCoverageEnabled(project.hasProperty('coverage'))
+
+            buildConfigField("String", "language_key", "\"${language_key}\"")
+            buildConfigField("String", "script_key", "\"${script_key}\"")
+            buildConfigField("String", "default_user_language", "\"${default_user_language}\"")
+            buildConfigField("String", "default_user_script", "\"${default_user_script}\"")
+
+            buildConfigField("long", "debounce_navigation_in_milliseconds", "${debounce_navigation_in_milliseconds}")
+
+            buildConfigField("float", "location_accuracy_best", "${location_accuracy_best}")
+            buildConfigField("float", "location_accuracy_worst", "${location_accuracy_worst}")
+
+            buildConfigField("double", "default_magnitude_delta_threshold", "${default_magnitude_delta_threshold}")
+            buildConfigField("long", "default_location_network_min_time_ms", "${default_location_network_min_time_ms}")
+            buildConfigField("long", "default_location_gps_min_time_ms", "${default_location_gps_min_time_ms}")
+            buildConfigField("float", "default_location_min_distance", "${default_location_min_distance}")
+
+            buildConfigField("float", "default_speed_meters_per_second", "${default_speed_meters_per_second}")
+            buildConfigField("float", "default_speed_meters_per_second_for_standing", "${default_speed_meters_per_second_for_standing}")
+            buildConfigField("float", "default_speed_meters_per_second_for_walking", "${default_speed_meters_per_second_for_walking}")
+            buildConfigField("float", "default_speed_meters_per_second_for_jogging", "${default_speed_meters_per_second_for_jogging}")
+            buildConfigField("float", "default_speed_meters_per_second_for_sprinting", "${default_speed_meters_per_second_for_sprinting}")
+
+            buildConfigField("int", "default_heartrate", "${default_heartrate}")
+            buildConfigField("int", "default_heartrate_for_standing", "${default_heartrate_for_standing}")
+            buildConfigField("int", "default_heartrate_for_walking", "${default_heartrate_for_walking}")
+            buildConfigField("int", "default_heartrate_for_jogging", "${default_heartrate_for_jogging}")
+            buildConfigField("int", "default_heartrate_for_sprinting", "${default_heartrate_for_sprinting}")
+
+            buildConfigField("long", "aggregate_data_seconds_interval", "${aggregate_data_seconds_interval}")
+            buildConfigField("long", "aggregate_sync_seconds_interval", "${aggregate_sync_seconds_interval}")
+        }
+    }
+}
+
+tasks.matching { it instanceof Test }.all {
+    testLogging.events = ["failed", "passed", "skipped"]
+}
+
+def getTestTags() {
+    return project.hasProperty("tags") ? project.getProperties().get("tags") : ""
+}
+

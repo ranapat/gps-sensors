@@ -1,0 +1,5 @@
+<resources>
+    <integer name="show_flash_light_duration">200</integer>
+    <integer name="hide_flash_light_duration">320</integer>
+    <integer name="default_transition_time">200</integer>
+</resources>

@@ -1,0 +1,12 @@
+dependencies {
+    implementation "androidx.appcompat:appcompat:${appcompat}"
+    implementation "androidx.constraintlayout:constraintlayout:${constraint_layout}"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:${coordinator_layout}"
+    implementation "androidx.gridlayout:gridlayout:${grid_layout}"
+    implementation "androidx.preference:preference:${preference}"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview"
+    implementation "com.airbnb.android:lottie:${lottie}"
+    implementation "com.google.android.material:material:${material}"
+    implementation "com.google.android.gms:play-services-maps:${google_maps}"
+    implementation "de.hdodenhof:circleimageview:${circle_image}"
+}

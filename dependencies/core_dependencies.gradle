@@ -1,0 +1,32 @@
+dependencies {
+    implementation "androidx.core:core-ktx:${core_ktx}"
+
+    implementation "io.reactivex.rxjava2:rxjava:${rxjava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rxandroid}"
+
+    implementation "com.github.tbruyelle:rxpermissions:${rxpermissions}"
+
+    implementation "com.squareup.okhttp3:okhttp:${okhttp}"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycle}"
+
+    kapt "androidx.room:room-compiler:${room}"
+    implementation "androidx.room:room-runtime:${room}"
+
+    implementation "com.google.android.play:core:${play_core}"
+    implementation "com.google.android.gms:play-services-auth:${play_services_auth}"
+
+    implementation "com.jakewharton.timber:timber:${timber}"
+
+    implementation "com.google.code.gson:gson:${gson}"
+
+    implementation "com.fasterxml.jackson.core:jackson-core:${jackson}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${jackson}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jackson}"
+
+    implementation "com.github.ranapat:instancefactory:${instancefactory}"
+    implementation "com.github.ranapat:hal:${hal}"
+
+    implementation "commons-codec:commons-codec:${commonscodec}"
+}

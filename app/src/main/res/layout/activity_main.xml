@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/fragment_toolbar" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="org.ranapat.sensors.gps.example.ui.map.MapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideLineOne"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/showCurrentLocationRaw"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_red"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/show_current_location_raw"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/map"
+        app:layout_constraintEnd_toEndOf="@id/map" />
+
+    <TextView
+        android:id="@+id/showCurrentLocationProcessed"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_dark_green"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/show_current_location_processed"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/map"
+        app:layout_constraintEnd_toStartOf="@id/showCurrentLocationRaw" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLineOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLineTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:overScrollMode="never"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideLineTwo"
+        app:tabGravity="fill"
+        app:tabMaxWidth="0dp"
+        app:tabMode="scrollable"
+        app:tabTextAppearance="@style/tab_text">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_statistics_local" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_logs_aggregator" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_logs_raw" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <ScrollView
+        android:id="@+id/statisticsScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@color/light_gray"
+        android:elevation="4dp"
+        android:padding="@dimen/default_padding"
+        android:scrollbarFadeDuration="0"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout">
+
+        <TextView
+            android:id="@+id/statistics"
+            style="@style/Widget.App.TextView.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="8dp"
+            tools:text="statistics" />
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/logsScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@color/dark_gray"
+        android:elevation="4dp"
+        android:padding="@dimen/default_padding"
+        android:scrollbarFadeDuration="0"
+        android:scrollbars="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout">
+
+        <TextView
+            android:id="@+id/logs"
+            style="@style/Widget.App.TextView.UltraSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="logs" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/status"
+        style="@style/Widget.App.TextView.Default"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/default_margin"
+        android:gravity="center_vertical"
+        android:padding="@dimen/default_padding"
+        app:layout_constraintBottom_toTopOf="@id/guideLineTwo"
+        app:layout_constraintEnd_toStartOf="@id/timer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideLineOne"
+        tools:text="status" />
+
+    <TextView
+        android:id="@+id/timer"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_blue"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/empty_string"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="15" />
+
+    <TextView
+        android:id="@+id/goalCountdown"
+        style="@style/Widget.App.TextView.Large"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_red"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/empty_string"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/currentSessionGoals"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_light_tan"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/current_session_goals"
+        android:textColor="@color/font_color"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/createSessionStanding"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_carrot_orange"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/create_session_standing"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/createSessionWalking"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_light_green"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/create_session_walking"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/createSessionStanding"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/createSessionJogging"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_dark_green"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/create_session_jogging"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/createSessionWalking"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/createSessionSprinting"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_dark_blue"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/create_session_sprinting"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/createSessionJogging"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/closeSession"
+        style="@style/Widget.App.TextView.Small"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/shape_circle_red"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="@string/close_session"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Sensors</string>
+
+    <string name="empty_string"> </string>
+
+    <string name="remote_statistics">history</string>
+    <string name="opponents">opponents</string>
+
+    <string name="show_current_location_raw">raw</string>
+    <string name="show_current_location_processed">kal</string>
+
+    <string name="tab_statistics_local">local stats</string>
+    <string name="tab_logs_aggregator">A* logs</string>
+    <string name="tab_logs_raw">raw logs</string>
+
+    <string name="location_shall_be_enabled_title">enable your location!</string>
+    <string name="location_shall_be_enabled_body">Seems you disabled your location!\n\nTo let application work properly please enable it from the settings and try again</string>
+    <string name="location_shall_be_enabled_ok">try again</string>
+    <string name="location_shall_be_enabled_cancel">leave</string>
+
+    <string name="current_session_goals">session goals</string>
+    <string name="current_session_goals_title">set goals!</string>
+    <string name="current_session_goals_body">Do you want to burn calories?\n\nSet your desired calories to burn during this session and we will count.</string>
+    <string name="current_session_goals_hint">calories to burn</string>
+    <string name="current_session_goals_ok">set</string>
+    <string name="current_session_goals_cancel">free mode</string>
+    <string name="current_session_goals_set">goal set to %d calories</string>
+
+    <string name="create_session_standing">standing session</string>
+    <string name="create_session_walking">walking session</string>
+    <string name="create_session_jogging">jogging session</string>
+    <string name="create_session_sprinting">sprinting session</string>
+    <string name="close_session">close session</string>
+
+    <string name="user_login">pick user</string>
+    <string name="user_login_save_success">user selected</string>
+
+    <string name="user_info">user details</string>
+    <string name="user_info_username">username</string>
+    <string name="user_info_age">select age …</string>
+    <string name="user_info_gender">select gender …</string>
+    <string name="user_info_weight">select weight …</string>
+    <string name="user_info_rating">select rating …</string>
+    <string name="user_info_save">save</string>
+    <string name="user_info_save_success">saved</string>
+    <string name="user_info_save_fail">save failed</string>
+    <string name="user_info_logout">logout</string>
+
+    <string name="session_list">history</string>
+    <string name="session_list_empty">no data to show</string>
+    <string name="session_view">details</string>
+    <string name="session_view_empty">no data to show</string>
+
+    <string name="opponent_list">opponents</string>
+    <string name="opponent_list_empty">no data to show</string>
+    <string name="opponent_view">details</string>
+    <string name="opponent_view_empty">no data to show</string>
+    <string name="opponent_view_fake_win">simulate win</string>
+    <string name="opponent_view_fake_lose">simulate lose</string>
+</resources>

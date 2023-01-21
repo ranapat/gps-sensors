@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    android:orientation="vertical"
+    android:padding="0dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_margin="0dp"
+        android:orientation="horizontal"
+        android:padding="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/type"
+            style="@style/Widget.App.TextView.Small"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="#80F4F1AC"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            tools:text="type" />
+
+        <TextView
+            android:id="@+id/duration"
+            style="@style/Widget.App.TextView.Small"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:background="#80B9F4AC"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            tools:text="duration" />
+
+        <TextView
+            android:id="@+id/createdAt"
+            style="@style/Widget.App.TextView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#80E2E5E8"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            tools:text="createdAt" />
+
+        <TextView
+            android:id="@+id/closedAt"
+            style="@style/Widget.App.TextView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#80FFC801"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            tools:text="closedAt" />
+
+        <TextView
+            android:id="@+id/sessionId"
+            style="@style/Widget.App.TextView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            android:visibility="gone"
+            tools:text="session id" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</LinearLayout>
